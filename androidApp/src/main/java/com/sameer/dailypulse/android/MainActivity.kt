@@ -22,7 +22,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    GreetingView("Hello")
+                  AboutScreen()
                 }
             }
         }
@@ -38,6 +38,6 @@ fun GreetingView(text: String) {
 @Composable
 fun DefaultPreview() {
     MyApplicationTheme {
-        GreetingView("Hello, Android!")
+        AboutScreen()
     }
 }
