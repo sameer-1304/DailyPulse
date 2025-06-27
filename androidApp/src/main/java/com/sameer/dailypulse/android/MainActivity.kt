@@ -9,12 +9,15 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.sameer.dailypulse.Platform
+import com.sameer.dailypulse.android.screens.AboutScreen
+import com.sameer.dailypulse.android.screens.ArticlesScreen
+import com.sameer.dailypulse.article.ArticlesViewModel
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        Platform().logSystemInfo()
+        val articlesViewModel = ArticlesViewModel()
 
         setContent {
             MyApplicationTheme {
@@ -22,22 +25,11 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                  AboutScreen()
+                    AppScaffold(articlesViewModel = articlesViewModel)
+
+
                 }
             }
         }
-    }
-}
-
-@Composable
-fun GreetingView(text: String) {
-    Text(text = text)
-}
-
-@Preview
-@Composable
-fun DefaultPreview() {
-    MyApplicationTheme {
-        AboutScreen()
     }
 }

@@ -1,9 +1,9 @@
 package com.sameer.dailypulse.article
 
-data class ArcticleState (
+data class ArticleState (
 
-    val loading: Boolean = false,
     val articles: List<Article> = listOf(),
+    val loading: Boolean = false,
     val error: String? = null
 
 )
