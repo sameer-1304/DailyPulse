@@ -33,6 +33,7 @@ fun AppScaffold(articlesViewModel: ArticlesViewModel) {
 @Composable
 fun AppNavHost(
     navController: NavHostController,
+
     modifier: Modifier = Modifier,
     articlesViewModel: ArticlesViewModel
 ) {

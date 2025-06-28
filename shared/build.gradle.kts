@@ -1,12 +1,14 @@
-import org.jetbrains.kotlin.gradle.dsl.JvmTarget // Not directly related to iosMain but good to have
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+import org.jetbrains.kotlin.gradle.plugin.mpp.apple.XCFramework
 
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
-    alias(libs.plugins.androidLibrary) // For the androidTarget
+    alias(libs.plugins.androidLibrary)
+    kotlin("plugin.serialization") version "1.9.20"
 }
 
 kotlin {
-    androidTarget { // Defines androidMain, androidUnitTest, androidInstrumentedTest
+    androidTarget {
         compilations.all {
             compileTaskProvider.configure {
                 compilerOptions {
@@ -16,22 +18,29 @@ kotlin {
         }
     }
 
-    // This block creates common targets for iosMain, iosTest, etc.
-    listOf(
-        iosX64(),
-        iosArm64(),
-        iosSimulatorArm64()
-    ).forEach {
+    val xcf = XCFramework()
+
+    val iosX64 = iosX64()
+    val iosArm64 = iosArm64()
+    val iosSimulatorArm64 = iosSimulatorArm64()
+
+    listOf(iosX64, iosArm64, iosSimulatorArm64).forEach {
         it.binaries.framework {
             baseName = "shared"
             isStatic = true
+            xcf.add(this)
         }
     }
 
     sourceSets {
         val commonMain by getting {
             dependencies {
-                // Shared multiplatform dependencies
+                implementation(libs.kotlinx.coroutines.core)
+                implementation(libs.ktor.client.core)
+                implementation(libs.ktor.client.content.negotiation)
+                implementation(libs.ktor.serialization.kotlinx.json)
+                implementation(libs.kotlinx.datetime)
+                implementation(libs.kotlinx.coroutines.core.v181)
             }
         }
 
@@ -45,6 +54,7 @@ kotlin {
         val androidMain by getting {
             dependencies {
                 implementation(libs.androidx.lifecycle.viewmodel.ktx)
+                implementation(libs.ktor.client.android)
             }
         }
 
@@ -59,7 +69,7 @@ kotlin {
             iosSimulatorArm64Main.dependsOn(this)
 
             dependencies {
-                // iOS shared dependencies (optional)
+                implementation(libs.ktor.client.darwin)
             }
         }
 
@@ -74,12 +84,9 @@ kotlin {
             iosSimulatorArm64Test.dependsOn(this)
         }
     }
-    sourceSets.commonMain.dependencies {
-        implementation(libs.kotlinx.coroutines.core.v181)
-    }
 }
 
-    android { // Android specific configuration for the androidLibrary plugin
+android {
     namespace = "com.sameer.dailypulse"
     compileSdk = 35
     defaultConfig {
