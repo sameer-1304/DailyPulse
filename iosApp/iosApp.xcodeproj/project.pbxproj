@@ -16,20 +16,20 @@
 		0E002D0F2E10238300487224 /* AppBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E002D0E2E10238300487224 /* AppBar.swift */; };
 		0E1AB4D72E0AB82900203B0C /* AboutListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E1AB4D62E0AB82900203B0C /* AboutListView.swift */; };
 		0E1AB4D92E0ABCCE00203B0C /* AboutScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E1AB4D82E0ABCCE00203B0C /* AboutScreen.swift */; };
-		0E8631FC2E105CC60070E06E /* shared.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E002CFF2E10122C00487224 /* shared.xcframework */; };
-		0E8631FD2E105CC60070E06E /* shared.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0E002CFF2E10122C00487224 /* shared.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		0EC8D2012E1303AA00C7206B /* shared.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E002CFF2E10122C00487224 /* shared.xcframework */; };
+		0EC8D2022E1303AA00C7206B /* shared.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0E002CFF2E10122C00487224 /* shared.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2152FB032600AC8F00CF470E /* iOSApp.swift */; };
 		7555FF83242A565900829871 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7555FF82242A565900829871 /* ContentView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		0E8631FE2E105CC60070E06E /* Embed Frameworks */ = {
+		0EC8D2032E1303AA00C7206B /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				0E8631FD2E105CC60070E06E /* shared.xcframework in Embed Frameworks */,
+				0EC8D2022E1303AA00C7206B /* shared.xcframework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -58,7 +58,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0E8631FC2E105CC60070E06E /* shared.xcframework in Frameworks */,
+				0EC8D2012E1303AA00C7206B /* shared.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -144,7 +144,7 @@
 				7555FF78242A565900829871 /* Frameworks */,
 				7555FF79242A565900829871 /* Resources */,
 				0E488DA32E0E5DC800C389D3 /* Build and Copy Shared XCFramework */,
-				0E8631FE2E105CC60070E06E /* Embed Frameworks */,
+				0EC8D2032E1303AA00C7206B /* Embed Frameworks */,
 			);
 			buildRules = (
 			);

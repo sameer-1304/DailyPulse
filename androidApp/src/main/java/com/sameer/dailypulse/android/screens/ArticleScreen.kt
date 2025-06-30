@@ -32,12 +32,13 @@ import com.sameer.dailypulse.article.Article
 import com.sameer.dailypulse.article.ArticlesViewModel
 import androidx.compose.foundation.lazy.items
 import coil.compose.AsyncImage
+import org.koin.androidx.compose.getViewModel
 
 
 @Composable
 fun ArticlesScreen(
     onAboutButtonClick: () -> Unit,
-    articlesViewModel: ArticlesViewModel,
+    articlesViewModel: ArticlesViewModel=getViewModel(),
 ) {
     val articlesState = articlesViewModel.articlesState.collectAsState()
 

@@ -49,4 +49,7 @@ dependencies {
 //    implementation(libs.androidx.navigation.compose.jvmstubs)
     debugImplementation(libs.compose.ui.tooling)
     implementation(libs.coil.compose.v240)
+
+    implementation(libs.koin.android)
+    implementation(libs.koin.androidx.compose)
 }

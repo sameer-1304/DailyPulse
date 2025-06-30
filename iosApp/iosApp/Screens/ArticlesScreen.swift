@@ -9,7 +9,7 @@ class ArticlesViewModelWrapper: ObservableObject {
     private var handle: Kotlinx_coroutines_coreJob? = nil
 
     init() {
-        articlesViewModel = ArticlesViewModel()
+        articlesViewModel = ArticlesInjector().articlesViewModel
         articlesState = articlesViewModel.articlesState.value as! ArticlesState
     }
 
@@ -39,10 +39,10 @@ struct ArticlesScreen: View {
         VStack {
             AppBar()
 
-//            if viewModel.articlesState.loading {
-//                Loader()
-//            }
-//
+            if viewModel.articlesState.loading {
+                Loader()
+            }
+
 //            if let error = viewModel.articlesState.error {
 //                ErrorMessage(message: error)
 //            }
